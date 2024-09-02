@@ -6,7 +6,7 @@ type WeatherImage = Record<
   }
 >;
 
-type WeatherCode =
+export type WeatherCode =
   | '0'
   | '1'
   | '2'
@@ -330,6 +330,7 @@ const items: Record<WeatherCode, WeatherImage> = {
  */
 function getWeatherImage(weatherCode: WeatherCode) {
   // Write implementation for this function to return the "day" image for a given weather code.
+  return items[weatherCode].day.image;
 }
 
 export default getWeatherImage;
