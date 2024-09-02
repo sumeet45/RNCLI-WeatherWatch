@@ -14,7 +14,6 @@ const WeatherComponent: React.FC<WeatherComponentProps> = props => {
   return (
     <View>
       <View>
-        <Text></Text>
         <Text style={{fontSize: 16, fontWeight: 'bold'}}>
           Pune's Current Temperature : {props.tempData.temperature} C
           <Image source={{uri: imageUrl}} style={{width: 100, height: 100}} />
