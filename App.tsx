@@ -4,8 +4,8 @@ import WeatherComponent from './src/weather';
 import {WeatherCode} from './src/helpers/getWeatherImage';
 
 export interface TempData {
-  temperature: number; // Assuming temperature is a number
-  weatherCode: WeatherCode | number; // Assuming weather code is a number
+  temperature: number;
+  weatherCode: WeatherCode | number;
   loading: boolean;
 }
 
@@ -19,7 +19,6 @@ interface CurrentWeatherUnits {
   weathercode: string;
 }
 
-// Interface for the current weather data
 interface CurrentWeather {
   time: string;
   interval: number;
@@ -30,7 +29,6 @@ interface CurrentWeather {
   weathercode: number;
 }
 
-// Interface for the full weather response
 interface AppResLatLong {
   latitude: number;
   longitude: number;
