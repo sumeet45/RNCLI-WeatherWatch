@@ -94,7 +94,7 @@ const SearchComponent = () => {
     const content = cities.avgData.map((value, index) => {
       let url = getWeatherImage(value[1]);
       return (
-        <View style={styles.dayIndex}>
+        <View style={styles.dayIndex} key={index}>
           <Text style={styles.fontSize18}>
             Day {index} : {value[0]}
           </Text>
