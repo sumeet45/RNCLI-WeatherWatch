@@ -127,10 +127,14 @@ const SearchComponent = () => {
         fetchDataBasedOnGiven={fetchDataBasedOnGiven}
       />
       {cities.avgData.length !== 0 ? (
-        <Text style={styles.selectedCity}>
-          Selected City : {cities.selectedCity[0].name}, Country :{' '}
-          {cities.selectedCity[0].country}
-        </Text>
+        <View>
+          <Text style={styles.selectedCity}>
+            Selected City : {cities.selectedCity[0].name},
+          </Text>
+          <Text style={styles.selectedCity}>
+            Country : {cities.selectedCity[0].country}
+          </Text>
+        </View>
       ) : null}
       {cities.avgData.length !== 0 ? renderWeeklyData() : null}
     </View>
@@ -163,8 +167,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   foreCastHeadline: {
-    fontSize: 20,
-    fontWeight: '600',
+    fontSize: 18,
     marginTop: 15,
   },
   imgUrl2: {
