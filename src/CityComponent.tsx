@@ -12,7 +12,7 @@ const CityComponent: React.FC<CityComponentProps> = props => {
       <View key={index} style={{marginVertical: 15}}>
         <TouchableOpacity onPress={() => props.fetchDataBasedOnGiven(item)}>
           <Text>
-            {item.name} - {item.country} 1111
+            {item.name} - {item.country}
           </Text>
         </TouchableOpacity>
       </View>
