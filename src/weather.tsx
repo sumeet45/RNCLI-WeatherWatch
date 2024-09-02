@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react';
-import {Image, Text, TextInput, View} from 'react-native';
+import {Image, StyleSheet, Text, TextInput, View} from 'react-native';
 import getWeatherImage from './helpers/getWeatherImage';
 import SearchComponent from './SearchComponent';
 import {TempData} from '../App';
@@ -14,9 +14,9 @@ const WeatherComponent: React.FC<WeatherComponentProps> = props => {
   return (
     <View>
       <View>
-        <Text style={{fontSize: 16, fontWeight: 'bold'}}>
+        <Text style={styles.headline}>
           Pune's Current Temperature : {props.tempData.temperature} C
-          <Image source={{uri: imageUrl}} style={{width: 100, height: 100}} />
+          <Image source={{uri: imageUrl}} style={styles.img} />
         </Text>
       </View>
       <View>
@@ -27,3 +27,8 @@ const WeatherComponent: React.FC<WeatherComponentProps> = props => {
 };
 
 export default WeatherComponent;
+
+const styles = StyleSheet.create({
+  headline: {fontSize: 16, fontWeight: 'bold'},
+  img: {width: 100, height: 100},
+});
