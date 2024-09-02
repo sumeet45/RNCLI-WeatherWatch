@@ -1,4 +1,4 @@
-import {Text, TouchableOpacity, View} from 'react-native';
+import {FlatList, Text, TouchableOpacity, View} from 'react-native';
 import {City} from './SearchComponent';
 
 interface CityComponentProps {
@@ -7,19 +7,22 @@ interface CityComponentProps {
 }
 
 const CityComponent: React.FC<CityComponentProps> = props => {
+  const renderHandler = ({item, index}: {item: City; index: number}) => {
+    return (
+      <View key={index} style={{marginVertical: 15}}>
+        <TouchableOpacity onPress={() => props.fetchDataBasedOnGiven(item)}>
+          <Text>
+            {item.name} - {item.country} 1111
+          </Text>
+        </TouchableOpacity>
+      </View>
+    );
+  };
   const renderCities = () => {
     if (props.cities.length !== 0) {
-      return props.cities.map((obj, index) => {
-        return (
-          <View key={index} style={{marginVertical: 15}}>
-            <TouchableOpacity onPress={() => props.fetchDataBasedOnGiven(obj)}>
-              <Text>
-                {obj.name} - {obj.country}
-              </Text>
-            </TouchableOpacity>
-          </View>
-        );
-      });
+      return (
+        <FlatList data={props.cities} renderItem={renderHandler}></FlatList>
+      );
     } else {
       return null;
     }
