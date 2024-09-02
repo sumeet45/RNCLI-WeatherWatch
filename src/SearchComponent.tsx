@@ -94,13 +94,24 @@ const SearchComponent = () => {
     const content = cities.avgData.map((value, index) => {
       let url = getWeatherImage(value[1]);
       return (
-        <Text key={index} style={{marginVertical: 10}}>
-          Day {index}: {value[0]} C{' '}
-          <Image source={{uri: url}} style={{width: 30, height: 30}} />
-        </Text>
+        <View style={styles.dayIndex}>
+          <Text style={styles.fontSize18}>
+            Day {index} : {value[0]}
+          </Text>
+          <Text style={styles.fontSize10}>o</Text>
+          <Text style={styles.fontSize18}> C</Text>
+          <Image source={{uri: url}} style={styles.imgUrl2} />
+        </View>
       );
     });
-    return content;
+    return (
+      <View>
+        <Text style={styles.foreCastHeadline}>
+          Weather ForeCast Data for Week
+        </Text>
+        <View style={styles.marTop8}>{content}</View>
+      </View>
+    );
   };
   return (
     <View style={styles.container}>
@@ -116,8 +127,8 @@ const SearchComponent = () => {
         fetchDataBasedOnGiven={fetchDataBasedOnGiven}
       />
       {cities.avgData.length !== 0 ? (
-        <Text style={{fontSize: 16, fontWeight: 'bold', marginTop: 10}}>
-          Selected City: {cities.selectedCity[0].name}, Country :{' '}
+        <Text style={styles.selectedCity}>
+          Selected City : {cities.selectedCity[0].name}, Country :{' '}
           {cities.selectedCity[0].country}
         </Text>
       ) : null}
@@ -146,6 +157,24 @@ const styles = StyleSheet.create({
     borderBottomColor: '#ccc',
     borderBottomWidth: 1,
   },
+  selectedCity: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginTop: 10,
+  },
+  foreCastHeadline: {
+    fontSize: 20,
+    fontWeight: '600',
+    marginTop: 15,
+  },
+  imgUrl2: {
+    width: 30,
+    height: 30,
+  },
+  marTop8: {marginTop: 8},
+  dayIndex: {flexDirection: 'row', marginVertical: 12},
+  fontSize18: {fontSize: 18},
+  fontSize10: {fontSize: 10},
 });
 
 export default SearchComponent;
